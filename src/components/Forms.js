@@ -1,15 +1,23 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react' 
 
-function Forms() {
-    const input = (text) =>{
-        console.log(text);
-    }
+const Forms = ({setInputText,todos, setTodos,inputText})=> {
+    const inputTextHandler = (e) =>{
+        console.log(e.target.value);
+        setInputText(e.target.value);
+    };
+    const submitTodoHandler =(e) =>{
+        e.preventDefault(); 
+        setTodos([...todos,{text: inputText, completed: false,id: Math.random()*1000}]);
+        // setInputText(""):when we submit state (inputText) will be empthy  
+        setInputText("");
+    };
+    
   return (
     <div>
         <form>
-            <input onChange={input} type = "text" className='todo-input' />
-            <button className = "todo-button" type = "submit">submit</button>
+            <input value={inputText} onChange={inputTextHandler} type = "text" className='todo-input' placeholder='Add a todo' />
+            <button onClick={submitTodoHandler} className = "todo-button" type = "submit"><i class="icon-plus-sign-alt"></i>Add todo</button>
             <div className='select'>
                 <select name = "todos" className="filter-todo" >
                     <option value = "">-Choose an option -</option>

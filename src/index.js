@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {LoginFormC,LoginFormF} from './components/LoginForm.js' ;
+// import {LoginFormC,LoginFormF} from './components/ConpenExemple/LoginForm.js' ;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <LoginFormC />
+    <LoginFormF />  */}
     <App />
-    <LoginFormC />
-    <LoginFormF />  
   </React.StrictMode>
 );
 
