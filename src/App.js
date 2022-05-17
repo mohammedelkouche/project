@@ -13,6 +13,7 @@ function App() {
       <h1>{inputText}</h1>
       <Contacts  />
       <Forms  setInputText={setInputText}/>
+      
     </div>
   );
 }
