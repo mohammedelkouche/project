@@ -1,5 +1,4 @@
 import React, {useState} from 'react' ;
-
 // import TodoForm from './components/ConpenExemple/TodoForm.js';
 // import Contacts from './components/ConpenExemple/Contacts.js';
 
@@ -15,7 +14,7 @@ function App() {
   // todos : the List that exist in the setTodos function 
   // setTodos: this is the function that a todos list  is included 
   const [todos,setTodos] =  useState([]) ;
-  const [status,setStatus] = useState("ALL") ;
+  const [editTodo,setEditTodo] = useState(null) ;
   return (
   
     <div className="App">
@@ -26,10 +25,13 @@ function App() {
               todos = {todos} 
               setTodos = {setTodos}
               setInputText = {setInputText}
-              setstatus = {setStatus} />
+              editTodo = {editTodo}
+              setEditTodo = {setEditTodo}
+              />
       <TodoList   todos = {todos}
-                  setTodos = {setTodos} />
-
+                  setTodos = {setTodos} 
+                  setEditTodo = {setEditTodo}
+                  />
 
 
       {/* <div>

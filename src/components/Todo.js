@@ -1,4 +1,6 @@
 import React from 'react';
+import {FaEdit} from "react-icons/fa";
+
 
 const Todo = ({ text , todo , todos , setTodos }) =>{ 
         // -----Events------ 
@@ -23,6 +25,19 @@ const Todo = ({ text , todo , todos , setTodos }) =>{
         )
         ) ;
     };
+    const EditHandler = () => {
+        setTodos(todos.map((index) =>{
+            if(index.id === todo.id ){
+                return {
+                    // modifier only completed to be opposite 
+                    ...index , completed : !index.completed
+                };
+            }
+            return index ;
+        }
+    ));
+    }
+
     return(
         <div className="todo">
             {/* todo.completed ? "completed" : "" =>
@@ -30,6 +45,8 @@ const Todo = ({ text , todo , todos , setTodos }) =>{
             <li className={`todo-item ${todo.completed ? "completed" : "" }`}>{text}</li>
             <button onClick={completeHandler} className='complete-btn'><i class="icon-check-sign"></i></button>
             <button onClick={deleteHandler} className='trash-btn'><i className="icon-trash"></i></button>
+            <button onClick={EditHandler} className='trash-btn'><FaEdit/></button>
+
         </div>
     );
 }
