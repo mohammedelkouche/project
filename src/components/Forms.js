@@ -17,7 +17,7 @@ const Forms = ({setInputText,todos, setTodos,inputText})=> {
   return (
     <div>
         <form>
-            <input value={inputText} onChange={inputTextHandler} type = "text" className='todo-input' placeholder='Add a todo' />
+            <input className="input" value={inputText} onChange={inputTextHandler} type = "text" className='todo-input' placeholder='Add a todo' />
             <button onClick={submitTodoHandler} className = "todo-button" type = "submit"><i class="icon-plus-sign-alt"></i>Add todo</button>
         </form>
     </div>

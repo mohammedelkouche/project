@@ -18,27 +18,29 @@ function App() {
   return (
   
     <div className="App">
-      <header>
-        <h1> TO DO LIST</h1>
-      </header>
-      <Forms  inputText = {inputText}
-              todos = {todos} 
-              setTodos = {setTodos}
-              setInputText = {setInputText}
-              editTodo = {editTodo}
-              setEditTodo = {setEditTodo}
-              />
-      <TodoList   todos = {todos}
-                  setTodos = {setTodos} 
+      <div className='d-flex align-items-center justify-content-center'>
+        <div className='div-form'>
+          <header>
+            <h1> TO DO LIST</h1>
+          </header>
+          <Forms  inputText = {inputText}
+                  todos = {todos} 
+                  setTodos = {setTodos}
+                  setInputText = {setInputText}
+                  editTodo = {editTodo}
                   setEditTodo = {setEditTodo}
                   />
-
-
-      {/* <div>
-        <h1>Test Exemple </h1>
-        <Contacts  />
-        <TodoForm />
-      </div> */}
+          <TodoList   todos = {todos}
+                      setTodos = {setTodos} 
+                      setEditTodo = {setEditTodo}
+                      />
+          {/* <div>
+            <h1>Test Exemple </h1>
+            <Contacts  />
+            <TodoForm />
+          </div> */}
+        </div>
+      </div>
     </div>
   );
 }
