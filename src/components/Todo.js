@@ -57,7 +57,6 @@ const Todo = ({ text , todo , todos , setTodos , setEditTodo , setEditingText , 
                 (     <button onClick={() =>updatTodo(todo.id)}>Save</button>)
                 :
                 (     <button onClick={() => setEditTodo(todo.id)} className='edit-btn'><FaUserEdit/></button>)}
-                {/* <button onClick={EditHandler} className='edit-btn'><FaUserEdit/></button> */}
             </div>
         </div>
     
