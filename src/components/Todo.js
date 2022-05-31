@@ -51,7 +51,7 @@ const Todo = ({ text , todo , todos , setTodos , setEditTodo , setEditingText , 
             />) : 
             (<div><li className={`todo-item ${todo.completed ? "completed" : "" }`}>{text}</li></div>) }
             <div className='div-button'>     
-                <button onClick={completeHandler} className='complete-btn'><i class="icon-check-sign"></i></button>
+                <button onClick={completeHandler} className='complete-btn'><i className="icon-check-sign"></i></button>
                 <button onClick={deleteHandler} className='trash-btn'><i className="icon-trash"></i></button>
                 {editTodo === todo.id ? 
                 (     <button onClick={() =>updatTodo(todo.id)}>Save</button>)
