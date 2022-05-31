@@ -38,19 +38,6 @@ const Todo = ({ text , todo , todos , setTodos , setEditTodo , setEditingText , 
         setEditTodo(null)
         setEditingText("")
     }
-    // const EditHandler = () => {
-    //     setEditTodo(todos.find((index) =>{
-    //         if(index.id === todo.id ){
-    //             return {
-    //                 // modifier only completed to be opposite 
-    //
-    //             };
-    //         }
-    //         return index ;
-    //     }
-    // ));
-    // }
-
     return(
         <div className="todo">
             {/* todo.completed ? "completed" : "" =>

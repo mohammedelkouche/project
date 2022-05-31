@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react' 
 
+
 const Forms = ({setInputText,todos, setTodos,inputText})=> {
     const inputTextHandler = (e) =>{
             // console.log(e.target.value);
@@ -17,7 +18,7 @@ const Forms = ({setInputText,todos, setTodos,inputText})=> {
         
     };
     
-  return (
+  return (   
     <div>
         <form>
             <input className="input todo-input" value={inputText} onChange={inputTextHandler} type = "text"  placeholder='Add a todo' />
