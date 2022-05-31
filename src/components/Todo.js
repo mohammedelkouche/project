@@ -2,7 +2,7 @@ import React from 'react';
 import {FaUserEdit} from "react-icons/fa";
 
 
-const Todo = ({ text , todo , todos , setTodos , setEditTodo }) =>{ 
+const Todo = ({ text , todo , todos , setTodos , setEditTodo , setEditingText , editingText , editTodo}) =>{ 
         // -----Events------
 
     //  DELETE
@@ -27,33 +27,53 @@ const Todo = ({ text , todo , todos , setTodos , setEditTodo }) =>{
         ) ;
     };
     //  Edit 
-    const EditHandler = () => {
-        setEditTodo(todos.find((index) =>{
-            if(index.id === todo.id ){
-                return {
-                    // modifier only completed to be opposite 
-                    ...index , completed : !index.completed
-                };
+    function updatTodo(id){
+        const updatedTodos = [...todos].map((index) =>{
+            if(index.id === id){
+                index.text = editingText
             }
-            return index ;
-        }
-    ));
+            return index
+        })
+        setTodos(updatedTodos)
+        setEditTodo(null)
+        setEditingText("")
     }
+    // const EditHandler = () => {
+    //     setEditTodo(todos.find((index) =>{
+    //         if(index.id === todo.id ){
+    //             return {
+    //                 // modifier only completed to be opposite 
+    //
+    //             };
+    //         }
+    //         return index ;
+    //     }
+    // ));
+    // }
 
     return(
         <div className="todo">
             {/* todo.completed ? "completed" : "" =>
                 in case this is true add the class completed if it not add empty  */}
-            <div>    
-                <li className={`todo-item ${todo.completed ? "completed" : "" }`}>{text}</li>
-            </div>
-   
-            <div className='div-button'>    
+            {/* { HOW TO THIS CODE BELLOW RUN } */}
+            {editTodo === todo.id ? 
+            (<input 
+                type="text"
+                onChange={(e) => setEditingText(e.target.value)}
+                value={editingText}
+            />) : 
+            (<div><li className={`todo-item ${todo.completed ? "completed" : "" }`}>{text}</li></div>) }
+            <div className='div-button'>     
                 <button onClick={completeHandler} className='complete-btn'><i class="icon-check-sign"></i></button>
                 <button onClick={deleteHandler} className='trash-btn'><i className="icon-trash"></i></button>
-                <button onClick={EditHandler} className='edit-btn'><FaUserEdit/></button>
+                {editTodo === todo.id ? 
+                (     <button onClick={() =>updatTodo(todo.id)}>Save</button>)
+                :
+                (     <button onClick={() => setEditTodo(todo.id)} className='edit-btn'><FaUserEdit/></button>)}
+                {/* <button onClick={EditHandler} className='edit-btn'><FaUserEdit/></button> */}
             </div>
         </div>
+    
     );
 }
 export default Todo ;

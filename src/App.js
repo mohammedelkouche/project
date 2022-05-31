@@ -14,7 +14,9 @@ function App() {
   // todos : the List that exist in the setTodos function 
   // setTodos: this is the function that a todos list  is included 
   const [todos,setTodos] =  useState([]) ;
+  
   const [editTodo,setEditTodo] = useState(null) ;
+  const [editingText,setEditingText] = useState("") ;
   return (
   
     <div className="App">
@@ -33,6 +35,9 @@ function App() {
           <TodoList   todos = {todos}
                       setTodos = {setTodos} 
                       setEditTodo = {setEditTodo}
+                      setEditingText = {setEditingText}
+                      editingText = {editingText}
+                      editTodo = {editTodo}
                       />
           {/* <div>
             <h1>Test Exemple </h1>
